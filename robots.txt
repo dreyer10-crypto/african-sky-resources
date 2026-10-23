@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+# internal tools, not pages for search
+Disallow: /email-signature.html
+Disallow: /assets/email/banner-frame.html
+
+Sitemap: https://www.africanskyresources.com/sitemap.xml

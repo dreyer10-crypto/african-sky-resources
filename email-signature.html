@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASR Email Signature</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/asr-mark-bold.png">
+<style>
+:root{--cream:#f5efe4;--card:#fffaf2;--line:#dccfba;--ink:#1e1611;--muted:#6b5d50;--copper:#a5532a;--espresso:#1b130d;--sun:#e2b15c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:40px 16px 64px}
+h1{font:600 32px/1.15 Georgia,serif;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 32px}
+.grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:32px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+form{background:var(--card);border:1px solid var(--line);padding:22px;display:grid;gap:14px}
+label{display:grid;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+input,select{font:inherit;font-size:15px;color:var(--ink);padding:9px 10px;border:1px solid var(--line);background:#fff;border-radius:2px;width:100%}
+.panel{background:#fff;border:1px solid var(--line);padding:28px;overflow-x:auto}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+button{font:inherit;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--espresso);background:var(--espresso);color:#f8f1e6;cursor:pointer;border-radius:2px}
+button.ghost{background:transparent;color:var(--ink)}
+.status{font-size:14px;color:var(--copper);min-height:1.4em;margin-top:8px}
+.steps{margin-top:36px;background:var(--card);border:1px solid var(--line);padding:22px 26px}
+.steps h2{font:600 20px Georgia,serif;margin:0 0 10px}
+.steps li{margin:6px 0}
+code{background:#efe6d6;padding:1px 5px;border-radius:2px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <h1>African Sky Resources email signature</h1>
+ <p class="sub">Fill in your details, check the preview, then copy it into your email app. One signature per person.</p>
+ <div class="grid">
+  <form id="f" autocomplete="off">
+   <label>Full name<input name="name" value="Full Name"></label>
+   <label>Job title<input name="title" value="Job Title"></label>
+   <label>Company line<select name="company">
+    <option value="asr">African Sky Resources</option>
+    <option value="mp">Mineral Partners · an African Sky Resources company</option>
+   </select></label>
+   <label>Mobile<input name="mobile" value="+27 00 000 0000"></label>
+   <label>Office (optional)<input name="office" value=""></label>
+   <label>Email<input name="email" value="name@africanskyresources.com"></label>
+   <label>Website domain<input name="domain" value="africanskyresources.com"></label>
+   <label>Location line (optional)<input name="location" value="" placeholder="e.g. city, country"></label>
+   <label style="display:flex;gap:8px;align-items:center;color:var(--ink)"><input type="checkbox" name="banner" checked style="width:auto"> Include rotating projects banner</label>
+  </form>
+  <div>
+   <div class="panel" id="preview"></div>
+   <div class="actions">
+    <button type="button" id="copy">Copy signature</button>
+    <button type="button" class="ghost" id="copyhtml">Copy HTML source</button>
+   </div>
+   <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+ </div>
+
+ <div class="steps">
+  <h2>Installing it</h2>
+  <ol>
+   <li><b>GoDaddy Professional Email (webmail):</b> Settings → Signature → paste → Save.</li>
+   <li><b>Microsoft 365 / Outlook on the web:</b> Settings → Mail → Compose and reply → Email signature → paste.</li>
+   <li><b>Outlook desktop:</b> File → Options → Mail → Signatures → New → paste.</li>
+   <li><b>Phone apps:</b> most only take plain text. Use name, title, company, mobile and website.</li>
+  </ol>
+  <p>The banner rotates through three projects: Mufumbwe gold, Mineral Partners copper and mobile processing. Gmail, Apple Mail, Outlook on the web and phones play the animation; Outlook desktop on Windows shows only the first slide. Clicking the banner opens the Projects section of the website.</p>
+  <p>The logo loads from <code>https://www.<span id="dom">africanskyresources.com</span>/assets/email/asr-logo-tile.png</code>, so it only shows in sent mail once the website is live on that domain. Until then, recipients see the text signature with an empty logo space.</p>
+ </div>
+</div>
+
+<script>
+(function(){
+ var f=document.getElementById('f'),pv=document.getElementById('preview'),st=document.getElementById('status');
+ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+ function v(n){return f.elements[n].value.trim()}
+ // forLive=true uses the absolute logo URL that recipients' mail clients will fetch
+ function build(forLive){
+  var dom=v('domain').replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/\/.*$/,'');
+  var logo=forLive?'https://www.'+dom+'/assets/email/asr-logo-tile.png':'assets/email/asr-logo-tile.png';
+  // animated GIF; Outlook desktop shows only its first frame (Mufumbwe), which stands on its own
+  var banner=forLive?'https://www.'+dom+'/assets/email/asr-projects-banner.gif':'assets/email/asr-projects-banner.gif';
+  var co=v('company')==='mp'
+   ?'<b style="color:#1f8f86">Mineral Partners</b><br><span style="color:#6b5d50">an African Sky Resources company</span>'
+   :'<b style="color:#a5532a">African Sky Resources</b>';
+  var lines=[];
+  if(v('mobile'))lines.push('M&nbsp;<a href="tel:'+esc(v('mobile').replace(/[^+\d]/g,''))+'" style="color:#1e1611;text-decoration:none">'+esc(v('mobile'))+'</a>');
+  if(v('office'))lines.push('T&nbsp;<a href="tel:'+esc(v('office').replace(/[^+\d]/g,''))+'" style="color:#1e1611;text-decoration:none">'+esc(v('office'))+'</a>');
+  if(v('email'))lines.push('E&nbsp;<a href="mailto:'+esc(v('email'))+'" style="color:#1e1611;text-decoration:none">'+esc(v('email'))+'</a>');
+  lines.push('W&nbsp;<a href="https://www.'+esc(dom)+'" style="color:#a5532a;text-decoration:none">www.'+esc(dom)+'</a>');
+  return '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;color:#1e1611">'
+  +'<tr><td width="156" style="width:156px;padding:0 16px 0 0;vertical-align:top"><img src="'+logo+'" width="140" height="110" alt="African Sky Resources" style="display:block;border:0;width:140px;height:110px"></td>'
+  +'<td style="padding:0 0 0 16px;border-left:2px solid #e2b15c;vertical-align:top">'
+  +'<div style="font-family:Georgia,\'Times New Roman\',serif;font-size:18px;font-weight:bold;color:#1e1611;line-height:1.2">'+esc(v('name'))+'</div>'
+  +'<div style="font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#b8862e;font-weight:bold;margin:3px 0 8px">'+esc(v('title'))+'</div>'
+  +'<div style="margin:0 0 8px">'+co+'</div>'
+  +'<div>'+lines.join('<br>')+'</div>'
+  +(v('location')?'<div style="color:#6b5d50;margin-top:4px">'+esc(v('location'))+'</div>':'')
+  +'<table width="56" cellpadding="0" cellspacing="0" border="0" style="width:56px;max-width:56px;margin-top:10px;table-layout:fixed"><tr>'
+  +'<td width="14" height="4" style="width:14px;max-width:14px;background:#198a00;font-size:0;line-height:0">&nbsp;</td><td width="14" height="4" style="width:14px;max-width:14px;background:#de2010;font-size:0;line-height:0">&nbsp;</td><td width="14" height="4" style="width:14px;max-width:14px;background:#000000;font-size:0;line-height:0">&nbsp;</td><td width="14" height="4" style="width:14px;max-width:14px;background:#ef7d00;font-size:0;line-height:0">&nbsp;</td>'
+  +'</tr></table></td></tr>'
+  +(f.elements.banner.checked?'<tr><td colspan="2" style="padding-top:14px"><a href="https://www.'+esc(dom)+'/#projects" style="text-decoration:none"><img src="'+banner+'" width="600" height="150" alt="African Sky Resources projects: gold, copper and mobile processing in Zambia" style="display:block;border:0;width:600px;max-width:100%;height:auto"></a></td></tr>':'')
+  +'<tr><td colspan="2" style="padding-top:14px;font-size:10px;line-height:1.4;color:#8a7c6d;max-width:520px">This email and any attachments are confidential and intended only for the named recipient. If you received it in error, please notify the sender and delete it. Nothing in this email is an offer of, or invitation to subscribe for, any investment.</td></tr>'
+  +'</table>';
+ }
+ function plain(){
+  var co=v('company')==='mp'?'Mineral Partners, an African Sky Resources company':'African Sky Resources';
+  return [v('name'),v('title'),co,v('mobile')&&'M '+v('mobile'),v('office')&&'T '+v('office'),v('email')&&'E '+v('email'),'W www.'+v('domain').replace(/^www\./,''),v('location')].filter(Boolean).join('\n');
+ }
+ function render(){pv.innerHTML=build(false);document.getElementById('dom').textContent=v('domain').replace(/^www\./,'')}
+ f.addEventListener('input',render);f.addEventListener('change',render);render();
+ async function copyRich(){
+  var html=build(true);
+  try{
+   if(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write){
+    await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([plain()],{type:'text/plain'})})]);
+   }else{
+    var tmp=document.createElement('div');tmp.innerHTML=html;tmp.style.position='fixed';tmp.style.left='-9999px';document.body.appendChild(tmp);
+    var r=document.createRange();r.selectNodeContents(tmp);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();tmp.remove();
+   }
+   st.textContent='Signature copied. Paste it into your email signature settings.';
+  }catch(e){st.textContent='Copy was blocked by the browser. Select the preview, copy it with Ctrl+C, and paste.'}
+ }
+ document.getElementById('copy').addEventListener('click',copyRich);
+ document.getElementById('copyhtml').addEventListener('click',async function(){
+  try{await navigator.clipboard.writeText(build(true));st.textContent='HTML source copied.'}catch(e){st.textContent='Copy was blocked by the browser.'}
+ });
+})();
+</script>
+</body>
+</html>
