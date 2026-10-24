@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>African Sky Resources | Responsible Gold &amp; Copper Development in Zambia</title>
-<meta name="description" content="African Sky Resources (ASR) develops responsible, modular gold projects in Zambia with mobile processing operated by KSGM, alongside the Mineral Partners copper platform.">
+<meta name="description" content="African Sky Resources (ASR) is a mineral project developer and strategic sponsor, structuring and leading responsible gold and copper projects in Zambia with proven technical partners.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://www.africanskyresources.com/">
 <meta name="theme-color" content="#f5efe4">
@@ -282,6 +282,31 @@ figcaption{font-size:13px;color:var(--muted);margin-top:10px;padding:0 4px}
 @media(max-width:960px){.mp-head,.mp-grid{grid-template-columns:1fr;gap:28px}.mp-principles{grid-template-columns:1fr 1fr}.mp-stages{grid-template-columns:1fr 1fr;row-gap:28px}.mp-gallery{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.mp-principles,.mp-stages{grid-template-columns:1fr}.mp-gallery{grid-template-columns:repeat(2,1fr)}}
 
+
+/* corporate profile additions */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:28px}
+.stats div{background:var(--card);border-radius:4px;padding:26px 24px;border-top:3px solid var(--sun)}
+.stats b{display:block;font-family:var(--serif);font-size:48px;line-height:1;color:var(--copper)}
+.stats span{display:block;margin-top:10px;color:var(--muted);font-size:15px}
+.cap-note{font-family:var(--serif);font-size:20px;max-width:64ch;margin-bottom:8px}
+.commod.countries{margin-top:28px}
+.commod.countries span{background:transparent}
+.principles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;counter-reset:pr}
+.principles li{counter-increment:pr;display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 16px;padding:22px 0;border-top:1px solid var(--line)}
+.principles li::before{content:counter(pr,decimal-leading-zero);grid-row:span 2;font-family:var(--serif);font-weight:600;font-size:26px;color:var(--copper);line-height:1.1}
+.principles h3{font-size:19px}
+.principles p{color:var(--muted);font-size:15px}
+.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:28px}
+.track div{background:var(--card);border-radius:4px;padding:26px 24px;border-left:3px solid var(--copper)}
+.track p{color:var(--muted);font-size:15px;margin-top:8px}
+.gov{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;background:var(--espresso);color:var(--on-dark);border-radius:4px;padding:34px 36px;margin-bottom:28px}
+.gov h3{color:var(--sun);margin-bottom:10px}
+.gov p{color:var(--on-dark-muted)}
+.gov ul{margin:0;padding:0;list-style:none}
+.gov li{padding:10px 0 10px 24px;border-bottom:1px solid #3b2d22;position:relative;color:var(--on-dark)}
+.gov li::before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%;background:var(--sun)}
+@media(max-width:960px){.stats,.track{grid-template-columns:1fr}.principles{grid-template-columns:1fr}.gov{grid-template-columns:1fr;gap:20px}}
+
 /* pathway */
 .path{list-style:none;margin:0;padding:0;counter-reset:p}
 .path li{counter-increment:p;display:grid;grid-template-columns:84px minmax(0,4fr) minmax(0,7fr);gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
@@ -329,10 +354,10 @@ footer{background:var(--espresso);color:var(--on-dark-muted);font-size:14px;padd
    <span><b>African Sky <span>Resources</span></b><small>Mineral development · Zambia</small></span>
   </a>
   <nav class="links" aria-label="Sections">
-   <a href="#model">Operating model</a><a href="#projects">Projects</a><a href="#platform">Platform</a><a href="#standards">Standards</a><a href="#pathway">Pilot pathway</a><a href="#team">Team</a>
+   <a href="#approach">Our model</a><a href="#projects">Projects</a><a href="#platform">Platform</a><a href="#standards">Standards</a><a href="#pathway">Pilot pathway</a><a href="#team">Team</a>
   </nav>
   <details class="menu"><summary>Menu</summary><div>
-   <a href="#model">Operating model</a><a href="#projects">Projects</a><a href="#platform">Platform</a><a href="#standards">Standards</a><a href="#pathway">Pilot pathway</a><a href="#team">Operator team</a><a href="#proposal">Proposal</a>
+   <a href="#approach">Our model</a><a href="#projects">Projects</a><a href="#platform">Platform</a><a href="#standards">Standards</a><a href="#pathway">Pilot pathway</a><a href="#team">Operator team</a><a href="#proposal">Proposal</a>
   </div></details>
   <button class="theme" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and black background"><i></i><b>Black</b></button>
   <a class="btn btn-dark" href="assets/ASR_Zambia_Gold_Development_Proposal.pdf" download>Download proposal</a>
@@ -344,10 +369,10 @@ footer{background:var(--espresso);color:var(--on-dark-muted);font-size:14px;padd
  <div class="wrap hero-grid">
   <div>
    <img class="hero-logo" src="assets/asr-logo.png" alt="African Sky Resources logo" width="240" height="164">
-   <span class="eyebrow">Zambia gold development</span>
+   <span class="eyebrow">Mineral project developer · Africa</span>
    <h1 id="h1"><span>Inclusive development.</span><span>Safer mining.</span><span>Cleaner processing.</span><span>Modular expansion.</span></h1>
    <div class="rule" aria-hidden="true"><i></i></div>
-   <p class="sub"><strong>African Sky Resources</strong> leads responsible gold development in Zambia, combining experienced African mining execution with project-specific mobile processing, operated by our partner KSGM.</p>
+   <p class="sub"><strong>African Sky Resources</strong> is a mineral project developer and strategic sponsor. We originate, structure and lead mineral projects, pairing pre-vetted local opportunities with proven technical execution partners such as KSGM.</p>
    <div class="cta">
     <a class="btn btn-sun" href="assets/ASR_Zambia_Gold_Development_Proposal.pdf" download>Download the proposal (PDF)</a>
     <a class="btn btn-ghost" href="#model">How the project is structured</a>
@@ -366,12 +391,24 @@ footer{background:var(--espresso);color:var(--on-dark-muted);font-size:14px;padd
   <div>
    <span class="eyebrow">Who we are</span>
    <h2 id="about-h" class="sr">About ASR</h2>
-   <p class="statement">ASR is a mineral development company. We originate and structure projects, hold the relationships with government and rights holders, and bring in specialist operators to deliver them. <em>In Zambia, that means gold produced safely, traceably and in step with national priorities.</em></p>
+   <p class="statement">ASR is a mineral project developer, strategic sponsor and project lead, not a traditional mining house. We originate, structure and manage mineral assets by pairing localised, pre-vetted opportunities with top-tier technical execution networks. <em>We lead commercial deployment, regulatory alignment and key decisions across the pipeline, with executive monitoring and compliance control throughout.</em></p>
   </div>
   <div class="pillars">
-   <div><h3>Safe operations</h3><p>Disciplined mine planning, controlled processing, access control, trained operators and stronger occupational safety.</p></div>
-   <div><h3>Environmental control</h3><p>Processing inside an engineered footprint with managed reagents, water, waste, rehabilitation and monitoring.</p></div>
+   <div><h3>Our mission</h3><p>To turn localised mineral opportunities into secure, sustainable and producing assets through disciplined legal structuring, institutional oversight and local inclusion.</p></div>
+   <div><h3>Development control</h3><p>Structured, agile joint-venture arrangements that move assets from artisanal production into consolidated small-scale mining licences without losing momentum.</p></div>
    <div><h3>Local value creation</h3><p>Formal production, skills transfer, employment, local procurement, traceability and legitimate routes to market.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="competencies" class="panel-bg" aria-labelledby="comp-h">
+ <div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">Institutional competencies</span><h2 id="comp-h">What ASR brings to every project</h2></div><p class="lede">Four disciplines that take a local mineral opportunity from first engagement to structured, monitored production.</p></div>
+  <div class="cap">
+   <div><h3>Project origination &amp; structuring</h3><p>Unlocking ring-fenced local assets through robust legal frameworks designed for full regulatory compliance.</p></div>
+   <div><h3>Capital &amp; asset mobilisation</h3><p>Capital-efficient development frameworks that match verified resources with established machinery and technical expertise.</p></div>
+   <div><h3>Executive management &amp; monitoring</h3><p>Live management systems, operational transparency and strict commercial discipline across every phase.</p></div>
+   <div><h3>Asset advancement</h3><p>Scaling projects methodically from artisanal production into consolidated Small-Scale Mining Licences (SSML).</p></div>
   </div>
  </div>
 </section>
@@ -393,18 +430,41 @@ footer{background:var(--espresso);color:var(--on-dark-muted);font-size:14px;padd
  </div>
 </section>
 
+<section id="approach" aria-labelledby="ap-h">
+ <div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow">Operating philosophy</span><h2 id="ap-h">The foundational strength of our model</h2></div><p class="lede">A practical, repeatable framework that starts from identified mineral assets rather than long-cycle exploration, and keeps value close to those nearest the asset.</p></div>
+  <ol class="principles">
+   <li><h3>Lower-entry development pathways</h3><p>We avoid long-cycle target generation and heavy exploration spend, starting instead from identified mineral assets that can be advanced and proven directly with lower initial risk.</p></li>
+   <li><h3>Access to identified resources</h3><p>A practical basis for early-stage advancement that reduces uncertainty at entry and lets projects progress with greater speed and confidence.</p></li>
+   <li><h3>Distributed small-scale mobilisation</h3><p>An agile, small-scale approach that moves equipment and technical support across workable project areas in a controlled, practical way.</p></li>
+   <li><h3>Early production traction</h3><p>Supported mobilisation into projects structured around offtake rights and development and expansion agreements with asset holders.</p></li>
+   <li><h3>Digital system transparency</h3><p>Internet access and live information systems bring real-time management and operational visibility to remote sites.</p></li>
+   <li><h3>Embedded local inclusion</h3><p>Project stability is built on the financial success of local asset holders, giving community legitimacy and keeping wealth connected to the operating area.</p></li>
+   <li><h3>Protected development pathway</h3><p>Structured access, aligned participation and development support reduce the disruption, conflict and misalignment that weaken many mineral projects.</p></li>
+   <li><h3>Accelerated paths to production</h3><p>Every system is calibrated to shorten the gap between mineral recognition, legal structuring, operational readiness and first production.</p></li>
+   <li><h3>Sustainable value retention</h3><p>Participation across key parts of the project structure keeps more of the value created connected to those closest to the asset.</p></li>
+   <li><h3>Scalable and repeatable</h3><p>A framework that can be applied consistently wherever the right legal, technical and operating conditions exist, not a single isolated mechanism.</p></li>
+  </ol>
+ </div>
+</section>
+
+
 <section id="capability" aria-labelledby="cap-h">
  <div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">Capability</span><h2 id="cap-h">Operating capability we bring to Zambia</h2></div><p class="lede">Delivered through ASR's operator, KSGM, with recent gold operations in Zimbabwe and South Africa.</p></div>
-  <div class="cap">
-   <div><h3>Gold</h3><p>KSGM's recent operating experience includes Pitana &amp; Syd in Zimbabwe and Krugersdorp gold operations in South Africa.</p></div>
-   <div><h3>Mining</h3><p>Practical mine start-up, contractor management, production planning, grade control and site execution.</p></div>
-   <div><h3>Processing</h3><p>Crushing, milling, beneficiation and gold recovery, supported by modular plant concepts.</p></div>
-   <div><h3>Logistics and marketing</h3><p>Moving and marketing mineral products across Southern African road, rail and port systems.</p></div>
+  <div class="sec-head"><div><span class="eyebrow">Deep-field operating capacity</span><h2 id="cap-h">Field-proven across Africa and Asia</h2></div><p class="lede">A field-driven execution capability that spans the full mineral development value chain, built through continuous deployment in frontier operating environments.</p></div>
+  <div class="stats">
+   <div><b>70+</b><span>years of combined industry experience</span></div>
+   <div><b>30+</b><span>years of international mining and project execution</span></div>
+   <div><b>40+</b><span>years in mining finance, cross-border M&amp;A and legal structuring</span></div>
   </div>
+  <p class="cap-note">The group's operating history includes developing, activating and turning around multiple mines into viable commercial assets, from site activation and infrastructure rollout to steady operations.</p>
   <div class="commod" aria-label="Commodity experience">
-   <span>Iron ore</span><span>Manganese</span><span>Chrome</span><span>Coal</span><span>Anthracite</span><span>Copper</span><span>Rare earths</span><span class="au">Gold</span>
-   <small>Combined ASR and operator experience. Reliable gold operations depend on more than metallurgy: mining discipline, maintenance, materials handling, logistics, security, procurement and market execution.</small>
+   <span class="au">Gold</span><span>Copper</span><span>Manganese</span><span>Iron ore</span><span>Chrome</span><span>Coal</span><span>Anthracite</span><span>Rare earths</span><span>Vanadium</span>
+   <small>Operating experience across precious, base and bulk mineral systems.</small>
+  </div>
+  <div class="commod countries" aria-label="Countries of operation">
+   <span>South Africa</span><span>Zambia</span><span>Zimbabwe</span><span>DR Congo</span><span>Republic of Congo</span><span>Namibia</span><span>Guinea</span><span>Côte d'Ivoire</span><span>Myanmar</span>
+   <small>Hands-on operations and exploration across the team's combined footprint.</small>
   </div>
  </div>
 </section>
@@ -420,7 +480,13 @@ footer{background:var(--espresso);color:var(--on-dark-muted);font-size:14px;padd
 
 <section id="platform" aria-labelledby="plat-h">
  <div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">The platform</span><h2 id="plat-h">Processing closer to the ore</h2></div><p class="lede">A mobile, modular gold plant that brings recovery into one controlled, monitored footprint.</p></div>
+  <div class="sec-head"><div><span class="eyebrow">Metallurgy &amp; process engineering</span><h2 id="plat-h">Processing closer to the ore</h2></div><p class="lede">Rather than rigid, off-the-shelf plant, we develop processing flowsheets, automated solutions and extraction strategies configured around each orebody, terrain and operating constraint.</p></div>
+  <div class="track">
+   <div><h3>Heavy mine development</h3><p>Open-pit and underground mining operations, and hands-on plant and mine management.</p></div>
+   <div><h3>Refinery-scale capital projects</h3><p>Direction of substantial capital project portfolios at a major gold refinery.</p></div>
+   <div><h3>Pilot to production</h3><p>Multi-year vanadium beneficiation programmes taken from exploration research through pilot plant to steady-state output, plus industrial-scale extraction turnarounds.</p></div>
+  </div>
+  <p class="flow-note" style="margin:0 0 48px">The result for each project: rapid technical validation, low-cost pilot implementation, rigorous site execution and careful process route selection, moving assets predictably from ground mobilisation toward commercial production.</p>
   <div class="platform">
    <figure><img src="assets/ksgm-plant.jpg" alt="Mobile processing plant modules on gravel pads with site containers" width="1024" height="576"><figcaption>Representative KSGM mobile processing plant</figcaption></figure>
    <div class="feat">
@@ -438,7 +504,18 @@ footer{background:var(--espresso);color:var(--on-dark-muted);font-size:14px;padd
 
 <section id="standards" class="panel-bg" aria-labelledby="std-h">
  <div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">Standards</span><h2 id="std-h">Standards designed into every deployment</h2></div><p class="lede">ASR sets the requirements; the operator builds them into each site from mobilisation onward.</p></div>
+  <div class="sec-head"><div><span class="eyebrow">Governance &amp; standards</span><h2 id="std-h">Standards designed into every deployment</h2></div><p class="lede">ASR sets the requirements; the operator builds them into each site from mobilisation onward.</p></div>
+  <div class="gov">
+   <div>
+    <h3>Corporate infrastructure, M&amp;A &amp; governance</h3>
+    <p>Long-term stability and asset protection rest on a governance architecture backed by more than 40 years of experience in international mining finance, cross-border mergers and acquisitions, and complex legal structuring.</p>
+   </div>
+   <ul>
+    <li>Team experience working to ISO 45001 and ISO 14001 management systems, and to JORC and NI 43-101 reporting codes.</li>
+    <li>Enterprise project-management systems, including integrated SHEQ (safety, health, environment and quality) platforms and automated workflows.</li>
+    <li>Real-time KPI visibility and auditable stakeholder reporting across distributed operations.</li>
+   </ul>
+  </div>
   <div class="std">
    <div><h3 class="group">Safety by design</h3><dl>
     <dt>Controlled access</dt><dd>Defined plant perimeter, access control and CCTV around processing and gold handling.</dd>
